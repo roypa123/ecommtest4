@@ -27,6 +27,41 @@ public class JwtService {
         this.refreshExpiryMs = refreshExpiryMs;
     }
 
+    public String generateAccessToken(String email){
+        return buildToken(email, accessExpiryMs);
+    }
 
+    public String generateRefreshToken(String email){
+        return buildToken(email, refreshExpiryMs);
+    }
+
+    private String buildToken(String email, long expiryMs) {
+        Date now = new Date();
+        return Jwts.builder()
+                .subject(email)
+                .issuedAt(now)
+                .expiration(new Date(now.getTime() + expiryMs))
+                .signWith(key)
+                .compact();
+    }
+
+    public String extractEmail(String token){
+        return Jwts.parser()
+                .verifyWith(key)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload()
+                .getSubject();
+    }
+
+    public boolean isTokenValid(String token){
+        try{
+            Jwts.parser().verifyWith(key).build().parseSignedClaims(token);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
+    }
 
 }
+
