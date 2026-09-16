@@ -30,8 +30,8 @@ public class MinioService {
     }
 
     @PostConstruct
-    public void ensureBucketExists() throw Exception {
-        booleas exists = minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
+    public void ensureBucketExists() throws Exception {
+        boolean exists = minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
         if(!exists){
             minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());
         }
@@ -44,7 +44,7 @@ public class MinioService {
 
             String fileName = UUID.randomUUID() + "-" + file.getOriginalFilename();
 
-            try(ImputStream inputStream = file.getInputStream()){
+            try(InputStream inputStream = file.getInputStream()){
                 minioClient.putObject(
                         PutObjectArgs.builder()
                                 .bucket(bucketName)

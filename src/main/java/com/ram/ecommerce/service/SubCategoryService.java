@@ -17,9 +17,44 @@ public class SubCategoryService {
     private final CategoryRepository categoryRepository;
     private final MinioService minioService;
 
+    public SubCategoryService(
+            SubCategoryRepository subCategoryRepository,
+            CategoryRepository categoryRepository,
+            MinioService minioService
+    ){
+        this.subCategoryRepository = subCategoryRepository;
+        this.categoryRepository = categoryRepository;
+        this.minioService = minioService;
 
+    }
 
+    public SubCategoryResponse create(Long categoryId, String name,MultipartFile image){
+        Category category = categoryRepository.findById(categoryId)
+                .orElseThrow(()-> new IllegalArgumentException("Category not found"));
 
+        String imageUrl = minioService.uploadFile(image);
+
+        SubCategory subCategory = new SubCategory();
+        subCategory.setCategory(category);
+        subCategory.setName(name);
+        subCategory.setImageUrl(imageUrl);
+        subCategoryRepository.save(subCategory);
+
+        return toResponse(subCategory);
+    }
+
+    public List<SubCategoryResponse> getByCategory(Long categoryId){
+        return  subCategoryRepository.findByCategoryId(categoryId).stream().map(this::toResponse).toList();
+    }
+
+    private SubCategoryResponse toResponse(SubCategory subCategory){
+        return new SubCategoryResponse(
+                subCategory.getId(),
+                subCategory.getName(),
+                subCategory.getImageUrl(),
+                subCategory.getCategory().getId()
+        );
+    }
 
 
 }
