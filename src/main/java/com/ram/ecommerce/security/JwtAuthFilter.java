@@ -26,7 +26,7 @@ public class JwtAuthFilter extends OncePerRequestFilter{
     @Override
     protected void doFilterInternal(
             @NonNull HttpServletRequest request,
-            @NonNull HttpServletResponse respoane,
+            @NonNull HttpServletResponse response,
             @NonNull FilterChain filterChain
     ) throws ServletException, IOException {
 
@@ -35,7 +35,7 @@ public class JwtAuthFilter extends OncePerRequestFilter{
         if(header != null && header.startsWith("Bearer ")){
             String token = header.substring(7);
 
-            if(jwtService.isTokenValid|(token)){
+            if(jwtService.isTokenValid(token)){
                 String email = jwtService.extractEmail(token);
 
                 var authentication = new UsernamePasswordAuthenticationToken(

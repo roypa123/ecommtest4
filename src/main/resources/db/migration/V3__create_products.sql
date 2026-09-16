@@ -5,6 +5,6 @@ CREATE TABLE products (
     title VARCHAR(200) NOT NULL,
     description TEXT,
     image_url VARCHAR(500),
-    price NUMERIC(10,2) NOT NULL
+    price NUMERIC(10,2) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT now()
 )

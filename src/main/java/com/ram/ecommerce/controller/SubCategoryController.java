@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/categories/{categoryId}subcategories")
+@RequestMapping("/api/categories/{categoryId}/subcategories")
 public class SubCategoryController {
 
     private final SubCategoryService subCategoryService;

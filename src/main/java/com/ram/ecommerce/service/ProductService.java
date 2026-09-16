@@ -38,7 +38,7 @@ public class ProductService {
             BigDecimal price,
             MultipartFile image
     ){
-        SubCategory subCategory = subCategoryRepository.findBy(subCategoryId)
+        SubCategory subCategory = subCategoryRepository.findById(subCategoryId)
                 .orElseThrow(()-> new IllegalArgumentException("Subcategory not found"));
 
 

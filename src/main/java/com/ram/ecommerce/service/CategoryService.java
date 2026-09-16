@@ -35,7 +35,7 @@ public class CategoryService {
         }
 
         public List<CategoryResponse> getAll(){
-            return categoryRepository.findAll().stream.map(this::toResponse).toList();
+            return categoryRepository.findAll().stream().map(this::toResponse).toList();
         }
 
         private CategoryResponse toResponse(Category category){

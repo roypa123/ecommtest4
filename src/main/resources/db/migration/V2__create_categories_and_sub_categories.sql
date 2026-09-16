@@ -7,7 +7,7 @@ CREATE TABLE categories(
 
 CREATE TABLE subcategories (
     id BIGSERIAL PRIMARY KEY,
-    category_id BIGINT NOT NULL REFERENCES categories(id)
+    category_id BIGINT NOT NULL REFERENCES categories(id),
     name VARCHAR(150) NOT NULL,
     image_url VARCHAR(500),
     created_at TIMESTAMP NOT NULL DEFAULT now(),
