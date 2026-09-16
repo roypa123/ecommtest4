@@ -35,5 +35,61 @@
 
  :: Spring Boot ::                (v4.1.1)
 
-2026-09-16T15:35:35.476Z  INFO 10364 --- [ecommerce] [           main] com.ram.ecommerce.EcommerceApplication   : Starting EcommerceApplication using Java 21.0.12 with PID 10364 (C:\roy\ropteak1\ecommerce\target\classes started by USER in C:\roy\ropteak1\ecommerce)
-2026-09-16T15:35:35.484Z  INFO 10364 --- [ecommerce] [           main] com.ram.ecommerce.EcommerceApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-09-16T15:36:30.302Z  INFO 12100 --- [ecommerce] [           main] com.ram.ecommerce.EcommerceApplication   : Starting EcommerceApplication using Java 21.0.12 with PID 12100 (C:\roy\ropteak1\ecommerce\target\classes started by USER in C:\roy\ropteak1\ecommerce)
+2026-09-16T15:36:30.308Z  INFO 12100 --- [ecommerce] [           main] com.ram.ecommerce.EcommerceApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-09-16T15:36:31.633Z  INFO 12100 --- [ecommerce] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-16T15:36:31.723Z  INFO 12100 --- [ecommerce] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 5 JPA repository interfaces.
+2026-09-16T15:36:32.466Z  INFO 12100 --- [ecommerce] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-09-16T15:36:32.485Z  INFO 12100 --- [ecommerce] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-16T15:36:32.486Z  INFO 12100 --- [ecommerce] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-09-16T15:36:32.567Z  INFO 12100 --- [ecommerce] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2168 ms
+2026-09-16T15:36:32.941Z  INFO 12100 --- [ecommerce] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-16T15:36:35.468Z  INFO 12100 --- [ecommerce] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@15994b0b
+2026-09-16T15:36:35.474Z  INFO 12100 --- [ecommerce] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-16T15:36:35.810Z  INFO 12100 --- [ecommerce] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://162.35.106.60:5438/postgres (PostgreSQL 18.6)
+2026-09-16T15:36:39.864Z  INFO 12100 --- [ecommerce] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:01.191s)
+2026-09-16T15:36:43.312Z  INFO 12100 --- [ecommerce] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 3
+2026-09-16T15:36:43.583Z  INFO 12100 --- [ecommerce] [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-09-16T15:36:45.408Z  INFO 12100 --- [ecommerce] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-16T15:36:45.481Z  INFO 12100 --- [ecommerce] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-09-16T15:36:46.026Z  INFO 12100 --- [ecommerce] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-16T15:36:47.782Z  INFO 12100 --- [ecommerce] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://162.35.106.60:5438/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-16T15:36:49.169Z  INFO 12100 --- [ecommerce] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-16T15:36:49.185Z  INFO 12100 --- [ecommerce] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-16T15:36:49.289Z  INFO 12100 --- [ecommerce] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-16T15:36:51.148Z  WARN 12100 --- [ecommerce] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-16T15:36:51.265Z  WARN 12100 --- [ecommerce] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: d90e018d-c697-467b-8f28-a18d4e2fa111
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-09-16T15:36:51.276Z  INFO 12100 --- [ecommerce] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-09-16T15:36:51.974Z  INFO 12100 --- [ecommerce] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-09-16T15:36:51.981Z  INFO 12100 --- [ecommerce] [           main] com.ram.ecommerce.EcommerceApplication   : Started EcommerceApplication in 22.5 seconds (process running for 23.378)
+2026-09-16T15:37:00.890Z  INFO 12100 --- [ecommerce] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-16T15:37:00.891Z  INFO 12100 --- [ecommerce] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-16T15:37:00.892Z  INFO 12100 --- [ecommerce] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-09-16T16:49:14.635Z  WARN 12100 --- [ecommerce] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@fc83a35 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T16:49:14.636Z  WARN 12100 --- [ecommerce] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=52m38s600ms72µs900ns).
+2026-09-16T16:49:19.640Z  WARN 12100 --- [ecommerce] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3b74676 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T16:49:24.654Z  WARN 12100 --- [ecommerce] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@15994b0b (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T16:49:29.663Z  WARN 12100 --- [ecommerce] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4738d3f7 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T16:49:34.679Z  WARN 12100 --- [ecommerce] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@358dc7c7 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T16:49:39.688Z  WARN 12100 --- [ecommerce] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@19ecc9f7 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T16:49:44.689Z  WARN 12100 --- [ecommerce] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@4b1bbe11 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T16:49:49.695Z  WARN 12100 --- [ecommerce] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7cf60a65 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T16:49:54.710Z  WARN 12100 --- [ecommerce] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6576fc42 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T16:49:59.717Z  WARN 12100 --- [ecommerce] [l-1:housekeeper] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7c24f74c (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2026-09-16T16:49:59.718Z  WARN 12100 --- [ecommerce] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=45s80ms866µs600ns).

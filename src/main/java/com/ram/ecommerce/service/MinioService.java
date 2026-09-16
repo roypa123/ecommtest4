@@ -44,12 +44,15 @@ public class MinioService {
 
             String fileName = UUID.randomUUID() + "-" + file.getOriginalFilename();
 
+            String contentType = file.getContentType() != null ? file.getContentType() : "application/octet-stream";
+
             try(InputStream inputStream = file.getInputStream()){
                 minioClient.putObject(
                         PutObjectArgs.builder()
                                 .bucket(bucketName)
                                 .object(fileName)
                                 .stream(inputStream, file.getSize(),-1)
+                                .contentType(contentType)
                                 .build()
                 );
             }
