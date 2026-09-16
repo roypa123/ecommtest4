@@ -15,8 +15,58 @@ import java.util.UUID;
 @Service
 public class MinioService {
 
+    private final MinioClient minioClient;
+    private final String bucketName;
+    private final String publicUrl;
+
+    public MinioService(
+            MinioClient minioClient,
+            @Value("${minio.bucket-name}") String bucketName,
+            @Value("${minio.public-url}") String publicUrl
+    ){
+        this.minioClient = minioClient;
+        this.bucketName = bucketName;
+        this.publicUrl = publicUrl;
+    }
+
+    @PostConstruct
+    public void ensureBucketExists() throw Exception {
+        booleas exists = minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
+        if(!exists){
+            minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());
+        }
+
+    }
+
+    public String uploadFile(MultipartFile file){
+
+        try {
+
+            String fileName = UUID.randomUUID() + "-" + file.getOriginalFilename();
+
+            try(ImputStream inputStream = file.getInputStream()){
+                minioClient.putObject(
+                        PutObjectArgs.builder()
+                                .bucket(bucketName)
+                                .object(fileName)
+                                .stream(inputStream, file.getSize(),-1)
+                                .build()
+                );
+            }
+
+            return publicUrl + "/" + bucketName + "/" + fileName;
+
+        } catch(Exception e){
+
+            throw new RuntimeException("Failed to upload file to MiniIO", e);
+        }
 
 
+
+
+
+
+    }
 
 
 
