@@ -25,7 +25,7 @@ public class AuthService {
             UserRepository userRepository,
             RefreshTokenRepository refreshTokenRepository,
             PasswordEncoder passwordEncoder,
-            JwtService jwtService;
+            JwtService jwtService
     ){
         this.userRepository = userRepository;
         this.refreshTokenRepository = refreshTokenRepository;
@@ -65,7 +65,7 @@ public class AuthService {
         RefreshToken stored = refreshTokenRepository.findByToken(refreshToken)
                 .orElseThrow(()-> new IllegalArgumentException("Invalid refresh token"));
 
-        if (stored.getExpiryData().isBefore(LocalDateTime.now())){
+        if (stored.getExpiryDate().isBefore(LocalDateTime.now())){
             refreshTokenRepository.delete(stored);
             throw new IllegalArgumentException("Refesh token expired");
         }
@@ -77,7 +77,7 @@ public class AuthService {
 
     private AuthResponse issueTokens(User user){
         String accessToken = jwtService.generateAccessToken(user.getEmail());
-        String refreshTokenValue = jwtService.generteRefreshToken(user.getEmail());
+        String refreshTokenValue = jwtService.generateRefreshToken(user.getEmail());
 
         refreshTokenRepository.deleteByUserId((user.getId()));
 

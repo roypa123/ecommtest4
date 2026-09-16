@@ -23,7 +23,7 @@ public class RefreshToken {
     @Column(unique = true)
     private String token;
 
-    private LocalDateTime expiryData;
+    private LocalDateTime expiryDate;
 
     private LocalDateTime createdAt = LocalDateTime.now();
 
